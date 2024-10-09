@@ -1,0 +1,393 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_lastUpdateTimeStamp" Type="OutArgument(s:DateTime)" />
+    <x:Property Name="out_lastExtractionTimeStamp" Type="OutArgument(s:DateTime)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>396,292</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1276,4821" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:DateTime" Name="lastExtractionTimeStamp" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="666,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="666,4594" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <ui:RetryScope DisplayName="Retry Scope - Tenta acessar o portal três vezes" sap:VirtualizedContainerService.HintSize="628,4343" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[Cint(in_Config(&quot;RetryScopeMaxTimes&quot;))]">
+          <ui:RetryScope.ActivityBody>
+            <ActivityAction>
+              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="586,4168" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Boolean" Name="cnpjFolderExist" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="Access Gov Portal" sap:VirtualizedContainerService.HintSize="552,3333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Portal de Dados Abertos" sap:VirtualizedContainerService.HintSize="518,3241" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="d84e417d-b28b-4e02-82c1-bfe99fa87342" Version="V2" WindowResize="Maximize">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,3001" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="lastUpdateDate" />
+                            <Variable x:TypeArguments="x:String" Name="dateString" />
+                            <Variable x:TypeArguments="x:String" Name="assetLastExtractionDate" />
+                            <Variable x:TypeArguments="s:DateTime" Name="lastUpdateTimeStamp" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Portal de Dados successfully opened.&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <uix:NGetText DisplayName="Get Text 'Atualização: Mensal'" sap:VirtualizedContainerService.HintSize="450,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="d84e417d-b28b-4e02-82c1-bfe99fa87342" TextString="[lastUpdateDate]" Version="V4">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-juridica---cnpj" CVScreenId="20463556-2037-47b6-977e-739448031c98" CvTextArea="63, 647, 325, 15" CvType="AnyWordGroup" DesignTimeRectangle="36, 469, 578, 25" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='col-12' idx='4' parentid='collapseSidebar' tag='DIV' /&gt;" FuzzyAccuracy="0.6" FuzzySelectorArgument="&lt;webctrl class='col-12' type='' parentid='collapseSidebar' tag='DIV' /&gt;" Guid="165b4508-11c4-4fe4-8a05-7d8ef154ca3f" ImageBase64="" InformativeScreenshot="84edf837af1637b3d63a16d6e242d549.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Portal de Dados Abertos' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                    <uix:Target Accuracy="0.7" CVScreenId="20463556-2037-47b6-977e-739448031c98" CvTextArea="83, 623, 161, 18" CvTextArgument="Atualização: Mensal" CvType="Text" DesignTimeRectangle="36, 445, 578, 24" FullSelectorArgument="&lt;webctrl aaname=' Atualização: Mensal ' class='col-12' parentid='collapseSidebar' tag='DIV' /&gt;" FuzzyAccuracy="0.6" FuzzySelectorArgument="&lt;webctrl aaname=' Atualização: Mensal ' class='col-12' parentid='collapseSidebar' tag='DIV' type='' check:innerText='Atualização: Mensal' /&gt;" Guid="b6d54b51-d66f-4a63-b3d4-f69798183eb9" ImageBase64="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" SearchSteps="Selector, FuzzySelector, Image, CV" />
+                                    <uix:Target CVScreenId="9e8ee6b2-bfa8-4117-be8c-b26ea902cc36" CvTextArea="703, 503, 165, 20" CvTextArgument="Discussões*" CvType="Text" DesignTimeRectangle="682, 475, 1197, 79" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Discussões*' id='btnCollapse' tag='BUTTON' /&gt;" FuzzyAccuracy="0.6" FuzzySelectorArgument="&lt;webctrl aaname='Discussões*' id='btnCollapse' tag='BUTTON' type='button' class='btn btn-light btn-block m-1 dataset-btn botao-collapse-Discussões collapsed' /&gt;" Guid="2a9bd12d-078a-4a1e-b982-92932e615c1e" SearchSteps="Selector, FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                          </uix:NGetText>
+                          <ui:LogMessage DisplayName="Log Message - Last Update Date from Gov Portal" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[lastUpdateDate]" />
+                          <Assign DisplayName="Assign - Get Date String using REGEX" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[dateString]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(lastUpdateDate, "\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}").Value]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;String format: &quot; + dateString]" />
+                          <Assign DisplayName="Assign - Transform String to DateTime" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[lastUpdateTimeStamp]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dateString, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Last Update Datetime format: &quot; + lastUpdateTimeStamp.ToString]" />
+                          <Assign DisplayName="Assign - Assign DateTime value to an out argument" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[out_lastUpdateTimeStamp]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[lastUpdateTimeStamp]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:GetRobotAsset TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="For testing and readability purposes I've added an asset to control the last extraction date which is going to be update in the end of the Process State with a Set Asset activity with the current timestamp.  " AssetName="RPA0001_lastExtractionDate" CacheStrategy="None" DisplayName="Get Asset - Get Last Extraction Date" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="450,247" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+                            <ui:GetRobotAsset.Value>
+                              <OutArgument x:TypeArguments="x:String">[assetLastExtractionDate]</OutArgument>
+                            </ui:GetRobotAsset.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:GetRobotAsset>
+                          <Assign DisplayName="Assign - Transform asset string value to datetime" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[lastExtractionTimeStamp]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact( assetLastExtractionDate, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign DisplayName="Assign - Assign datetime value to an out argument" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[out_lastExtractionTimeStamp]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[lastExtractionTimeStamp]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Last Extraction Datetime format: &quot; + lastExtractionTimeStamp.ToString]" />
+                          <If sap2010:Annotation.AnnotationText="Comparing both dates to insert a queue item for monitoring and framework purposes" Condition="[lastExtractionTimeStamp &lt; lastUpdateTimeStamp]" sap:VirtualizedContainerService.HintSize="450,1058" sap2010:WorkflowViewState.IdRef="If_1">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,627" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Inserting Queue Item...&quot;]" />
+                                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="382,226" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="RPA0001_ChallengeRPA">
+                                  <ui:AddQueueItem.ItemInformation>
+                                    <InArgument x:TypeArguments="x:String" x:Key="lastUpdateDate">[dateString]</InArgument>
+                                  </ui:AddQueueItem.ItemInformation>
+                                </ui:AddQueueItem>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_12" Message="[&quot;Successfully added queue item&quot;]" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;There is no need to run the automation, files are up to date.&quot;]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="-1928, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" sap2010:WorkflowViewState.IdRef="TargetApp_1" InformativeScreenshot="68843ab2497da0f1b74abff9e12739cf.jpg" Selector="&lt;html app='chrome.exe' title='Portal de Dados Abertos' /&gt;" Title="Portal de Dados Abertos" Url="[in_Config(&quot;urlDadosCnpjGov&quot;).ToString]" />
+                    </uix:NApplicationCard.TargetApp>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NApplicationCard>
+                </Sequence>
+                <Sequence DisplayName="Create Process Folders" sap:VirtualizedContainerService.HintSize="552,775" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="lastExtractionFolderExists" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:FolderExistsX DisplayName="Folder Exists" Exists="[cnpjFolderExist]" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[&quot;C:\Users\&quot; &amp; Environment.UserName &amp; &quot;\Documents\CNPJ Files&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:FolderExistsX>
+                  <If Condition="[cnpjFolderExist = False]" DisplayName="If - Verify if CNPJ Files folder exist, if not then create the folder" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="If_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder - CNPJ Files" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;C:\Users\&quot; &amp; Environment.UserName &amp; &quot;\Documents\CNPJ Files&quot;]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:FolderExistsX DisplayName="Folder Exists" Exists="[lastExtractionFolderExists]" sap:VirtualizedContainerService.HintSize="450,165" sap2010:WorkflowViewState.IdRef="FolderExistsX_2" Path="[&quot;C:\Users\&quot; &amp; Environment.UserName &amp; &quot;\Documents\CNPJ Files\&quot; + lastExtractionTimeStamp.Year.ToString + &quot;-&quot; + lastExtractionTimeStamp.Month.ToString(&quot;00&quot;)]" />
+                  <If Condition="[lastExtractionFolderExists = False]" sap:VirtualizedContainerService.HintSize="450,413" sap2010:WorkflowViewState.IdRef="If_3">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="382,103" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[&quot;C:\Users\&quot; &amp; Environment.UserName &amp; &quot;\Documents\CNPJ Files\&quot; + lastExtractionTimeStamp.Year.ToString + &quot;-&quot; + lastExtractionTimeStamp.Month.ToString(&quot;00&quot;)]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </Sequence>
+            </ActivityAction>
+          </ui:RetryScope.ActivityBody>
+          <ui:RetryScope.Condition>
+            <ActivityFunc x:TypeArguments="x:Boolean" />
+          </ui:RetryScope.Condition>
+        </ui:RetryScope>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="632,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Error" Message="[&quot;The automation attempted 3 times, but something unexpected happened when trying to access the government website, try again later.&quot;]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
