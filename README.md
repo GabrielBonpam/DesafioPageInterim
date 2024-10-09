@@ -10,6 +10,8 @@ A automação está funcional e pronta para uso, abaixo desta mensagem inseri os
 
 Optei pelo Reframework por questões avaliativas do processo e de monitoramento do processo em produção pelos mecanismos que o API Server da UiPath oferece para criação de dashboards, utilizando o Swagger do orquestrador da organização como ferramenta de apoio é possível observar a quantidade de endpoints disponíveis para esse monitoramento com o uso de ferramentas como Grafana ou DataDog. Toda a configuração de assets pode ser observada no arquivo Config.xlsx seguindo o Reframework ou no print abaixo, os logs da automação também se encontram no final deste arquivo. Como existem arquivos muito grandes com cerca de 1.3GB na base de dados eu removi os arquivos maiores durante os testes devido ao prazo de entrega, mas tive a oportunidade de executar com todos os arquivos e a automação está toda funcional, porém nos logs da última execução vocês podem notar a falta dos arquivos maiores no processamento.
 
+Observações técnicas: Não encontrei desafios técnicos evidentes durante o desenvolvimento, os seletores foram aplicados de forma dinâmica para que se adaptem as tabelas no site do Governo como boa prática. O único problema encontrado durante o desenvolvimento foi o download dos arquivos maiores devido ao prazo de entrega.
+
 # Resultados:
 
 - Email de sucesso (HTML, CSS)
